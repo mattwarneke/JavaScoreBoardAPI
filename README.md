@@ -1,7 +1,8 @@
 # JavaScoreBoardAPI
 
 Score Board API for game scores. Store and return scores for Labyrinth Tower Defense.
-Java Spring Boot API. Dockerfile included, can be run in a container.
+
+Built using Java Spring Boot. Dockerfile included, can be run in a container.
 
 Score json example:
 {
