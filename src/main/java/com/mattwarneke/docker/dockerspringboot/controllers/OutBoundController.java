@@ -1,7 +1,5 @@
 package com.mattwarneke.docker.dockerspringboot.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mattwarneke.docker.dockerspringboot.model.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 

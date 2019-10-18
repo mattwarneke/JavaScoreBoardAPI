@@ -1,32 +1,40 @@
 package com.mattwarneke.docker.dockerspringboot.controllers;
 
-import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.mattwarneke.docker.dockerspringboot.model.Score;
+import com.mattwarneke.docker.dockerspringboot.repository.IScoreRepository;
+import com.mattwarneke.docker.dockerspringboot.repository.ScoreRepository;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/scores")
 public class ScoreController {
-    @PostMapping("/lastscore")
-    public void lastScore(@PathVariable Integer lastscore) {
-        cachedScores.add(new Score(lastscore, "-", new Date(), "-", ""));
+
+    IScoreRepository scoreRepository = new ScoreRepository();
+
+    @PostMapping("/scoreInt")
+    public void score(@PathVariable Integer lastscore) {
+        scoreRepository.addScore(new Score(lastscore, "-", new Date(), "-", ""));
     }
 
-    List<Score> cachedScores = new ArrayList<Score>();
-
-    @GetMapping("/scoreobject")
-    public List<Score> scoreObject() {
-        return cachedScores;
+    @GetMapping("/score")
+    public List<Score> score() {
+        return scoreRepository.findAll();
     }
    
-    @PostMapping("/scoreobject")
-    public void lastScoreObject(@RequestBody Score objScore) {
-        this.cachedScores.add(objScore);
+    @PostMapping("/score")
+    public void score(@RequestBody Score score) {
+        scoreRepository.addScore(score);
     }
 
     // @PostMapping("/employees")

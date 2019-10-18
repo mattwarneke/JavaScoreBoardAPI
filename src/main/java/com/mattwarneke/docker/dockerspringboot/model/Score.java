@@ -2,9 +2,9 @@ package com.mattwarneke.docker.dockerspringboot.model;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import javax.persistence.Entity;
 
-//import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 //@Data
 //@Entity
@@ -17,20 +17,20 @@ public class Score {
         String level,
         String version)
     {
-        this.Score = score;
-        this.User = user;
+        this.score = score;
+        this.user = user;
         this.Date = date;
-        this.Level = level;
-        this.Version = version;
+        this.level = level;
+        this.version = version;
     }
 
-    public Integer Score;
+    public Integer score;
 
-    public String User;
+    public String user;
 
     public Date Date;
 
-    public String Level;
+    public String level;
 
-    public String Version;
+    public String version;
 }
