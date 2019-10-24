@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.mattwarneke.docker.dockerspringboot.model.Score;
 
-public class ScoreRepository implements IScoreRepository {// extends JpaRepository<Score, String> {
+public class ScoreRepository implements IScoreRepository {
     List<Score> allScores = new ArrayList<Score>();
 
     HashMap<String, List<Score>> userScores = new HashMap<String, List<Score>>();

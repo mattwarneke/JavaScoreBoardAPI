@@ -1,0 +1,12 @@
+type Query {
+    scores: [Score]
+    scoresByUser(user: String): [Score]
+}
+
+type Score {
+    user: String!
+    score: Int!
+    #date: Date
+    level: String
+    version: String
+}
